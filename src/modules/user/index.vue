@@ -2,6 +2,7 @@
 import { defineComponent, inject, onMounted, provide, reactive, readonly, ref, watch } from 'vue';
 import Mobile from './mobile/index.vue';
 import Car from './car/index.vue';
+import { useStateSimple } from '../../boost/inject-extra';
 
 const user = reactive({
   name: '13',
@@ -46,9 +47,7 @@ export default defineComponent({
 })
 
 
-const useUser = [readonly(user), (state) => {
-  Object.assign(user, state);
-}];
+const useUser = useStateSimple(user);
 
 export {
   useUser

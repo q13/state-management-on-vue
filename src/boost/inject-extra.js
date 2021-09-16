@@ -76,3 +76,13 @@ export function injectAsync(key) {
     return promise;
   }
 }
+
+/**
+ * 输出 [state, setState] 值形式, 依赖Object.assign浅merge
+ * @param { any } state - 待分发的状态
+ */
+export function useStateSimple(state, interceptor = (_ => _)) {
+  return [readonly(state), (data) => {
+    Object.assign(state, interceptor(data));
+  }];
+}
