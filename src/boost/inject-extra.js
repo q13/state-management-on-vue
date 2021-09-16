@@ -1,7 +1,7 @@
 /**
  * provide/inject hoist
  */
-import { defineComponent, reactive, toRaw, getCurrentInstance } from 'vue';
+import { defineComponent, reactive, toRaw, getCurrentInstance, readonly } from 'vue';
 
 const hoistValues = new Map();
 const hoistKeys = new WeakMap();
